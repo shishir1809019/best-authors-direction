@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Author from "../Author/Author";
 import Cart from "../Cart/Cart";
 import SingleAuthorName from "../SingleAuthorName/SingleAuthorName";
+import "./Authors.css";
 
 const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -17,23 +18,38 @@ const Authors = () => {
       .then((data) => setAuthors(data));
   }, []);
   return (
-    <div className="row">
+    <div className="row mt-3">
       <div className="col-md-9">
-        <div className="row">
+        <div className="row ">
           {authors.map((author) => (
             <Author
               handleFavoriteAuthor={handleFavoriteAuthor}
               author={author}
+              key={author._id}
             ></Author>
           ))}
         </div>
       </div>
-      <div className="col-md-3">
-        <h4>Favorite authors: {favoriteAuthors.length}</h4>
-        <Cart favoriteAuthors={favoriteAuthors}></Cart>
-        {favoriteAuthors.map((favoriteAuthor) => (
-          <SingleAuthorName favoriteAuthor={favoriteAuthor}></SingleAuthorName>
-        ))}
+      <div className="col-md-3 b-1 ">
+        <div className="card position-fixed w-100">
+          <div className="card-body ">
+            <h5 className="card-title">
+              Favorite authors: {favoriteAuthors.length}
+            </h5>
+            <h6 className="card-subtitle mb-2 ">
+              <Cart favoriteAuthors={favoriteAuthors}></Cart> <br />
+              {favoriteAuthors.map((favoriteAuthor) => (
+                <SingleAuthorName
+                  key={favoriteAuthor.author.name}
+                  favoriteAuthor={favoriteAuthor}
+                ></SingleAuthorName>
+              ))}
+              <button className="btn btn-warning mt-2">
+                <i class="fas fa-handshake"></i> Meet with them
+              </button>
+            </h6>
+          </div>
+        </div>
       </div>
     </div>
   );

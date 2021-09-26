@@ -5,7 +5,7 @@ const SingleAuthorName = (props) => {
   const { author } = props.favoriteAuthor;
   return (
     <div>
-      <h5>Name:{author.name}</h5>
+      <h6>Name:{author.name}</h6>
     </div>
   );
 };

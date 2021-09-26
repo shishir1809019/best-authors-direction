@@ -1,0 +1,9 @@
+.author-details {
+  background-color: #fff1c7;
+  transition: 0.5s;
+}
+.author-details:hover {
+  transform: scale(1.05);
+  background-color: #fff;
+  border: 1px solid lightgray;
+}
