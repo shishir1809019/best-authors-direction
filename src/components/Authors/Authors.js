@@ -31,8 +31,9 @@ const Authors = () => {
         </div>
       </div>
       <div className="col-md-3 b-1 ">
-        <div className="card position-fixed w-100">
+        <div className="card sticky">
           <div className="card-body ">
+            <h4 className="text-center font-weight-bold">Author Cart</h4> <br />
             <h5 className="card-title">
               Favorite authors: {favoriteAuthors.length}
             </h5>
